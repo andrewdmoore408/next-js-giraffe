@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import ProductCard from '../../components/ProductCard';
 import styles from '../../styles/ShopPage.module.css';
-import { getProductsByCategory } from '../api/products/[category]';
+import { connectToDatabase } from '../../utils/mongoDb';
+// import { getProductsByCategory } from '../api/products/[category]';
 
 const CategoryPage = ({ products }) => {
   const router = useRouter();
@@ -20,7 +21,13 @@ const CategoryPage = ({ products }) => {
 export default CategoryPage;
 
 export async function getServerSideProps(ctx) {
+  const { db } = await connectToDatabase();
+
   const category = ctx.query.category;
-  const products = await getProductsByCategory(category);
-  return { props: { products } };
+  const products = await db
+    .collection("product")
+    .find({ category })
+    .toArray();
+
+  return { props: { products: JSON.parse(JSON.stringify(products)) } };
 }
