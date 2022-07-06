@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb'
 
-let uri = "mongodb+srv://jjam_mongo_pair1:n0A5X0opVo0PJiMq@cluster0.ri64mrj.mongodb.net/?retryWrites=true&w=majority";
-let dbName = "nextJS";
+let uri = process.env.MONGO_URI;
+let dbName = process.env.MONGO_DB;
 
 let cachedClient = null
 let cachedDb = null
