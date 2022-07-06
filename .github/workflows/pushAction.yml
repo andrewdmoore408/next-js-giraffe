@@ -30,4 +30,4 @@ jobs:
     - name: deploy with serverless framework
       run: |
         npm install
-        npx serverless@2.72.2
+        npx --yes serverless@2.72.2
