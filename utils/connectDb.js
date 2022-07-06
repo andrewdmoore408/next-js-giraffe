@@ -39,10 +39,10 @@ async function connectDB() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    .then(() => console.log(`Database connected successfully`))
-    .catch((err) => console.log(err));
+    .then(() => console.log(`in utils/connectDb.js: Database connected successfully`))
+    .catch((err) => console.log('err in utils/connectDb.js: ', err));
 
-  mongoose.Promise = global.Promise;
+  // mongoose.Promise = global.Promise;
 }
 
 // let cached = global.mongoose

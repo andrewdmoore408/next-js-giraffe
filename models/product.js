@@ -57,7 +57,18 @@ const ProductSchema = new Schema({
 // module.exports = loadProductModel;
 // export default loadProductModel()
 
-export default mongoose.models.Product ? mongoose.models.Product : mongoose.model('Product', ProductSchema)
+// export default mongoose.models.Product ? mongoose.models.Product : mongoose.model('Product', ProductSchema)
 
-// mongoose.models.Product || mongoose.model('Product', ProductSchema);
+// export default Product = mongoose.model('Product', ProductSchema);
 
+console.log('in models/product.js: mongoose.models is ', mongoose.models);
+
+// export default mongoose.models.Product || mongoose.model('Product', ProductSchema);
+
+export let Product;
+
+if (mongoose.models.Product === undefined) {
+  Product = mongoose.model('Product', ProductSchema);
+} else {
+  Product = mongoose.models.Product;
+}
