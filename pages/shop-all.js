@@ -27,7 +27,7 @@ import styles from '../styles/ShopPage.module.css';
 // import getProducts from './api/products/index';
 // import baseUrl from '../utils/baseUrl';
 // import axios from 'axios';
-import { connectToDatabase } from "../utils/mongodb";
+import { connectToDatabase } from "../utils/mongoDb";
 
 const ShopPage = ({ products }) => {
   return (
