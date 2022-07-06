@@ -1,0 +1,33 @@
+name: example
+on: push
+
+env:
+  NODE_VERSION: 16.15.1
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: main
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+    - name: export env variables
+      run: |
+        export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+        export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: 
+      uses: oNaiPs/secrets-to-env-action@v1
+      with:
+        secrets: ${{ toJSON(secrets) }}
+    - name: deploy with serverless framework
+      run: |
+        npm install
+        npx serverless@2.72.2
