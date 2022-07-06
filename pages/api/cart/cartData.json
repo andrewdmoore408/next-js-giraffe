@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "product": "Cyberpunk 2077",
+    "category": "xbox",
+    "image": "https://imgur.com/3CF1UhY.png",
+    "price": 36.49,
+    "quantity": 2
+  },
+  {
+    "id": 29,
+    "product": "Gaming Mouse",
+    "category": "accessories",
+    "image": "https://imgur.com/wvpHOCm.png",
+    "price": 29.99,
+    "quantity": 1
+  }
+]
