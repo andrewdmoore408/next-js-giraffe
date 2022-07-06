@@ -22,7 +22,7 @@ const CartPage = ({ cartItems }) => {
   return (
     <div className={styles.container}>
       {cartItems.length === 0 ? (
-        <h1>Your Cart is Empty!</h1>
+        <h1>Your Cart is Empty! Put some stuff in it!</h1>
       ) : (
         <>
           <div className={styles.header}>
