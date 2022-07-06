@@ -32,3 +32,4 @@ jobs:
         npm install
         npm install serverless@2.72.2
         npx serverless@2.72.2
+        echo 'y'
