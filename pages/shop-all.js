@@ -33,6 +33,7 @@ const ShopPage = ({ products }) => {
     <div className={styles.container}>
       <h1 className={styles.title}>All Results</h1>
       <div className={styles.cards}>
+        {/* {console.log('in ShopPage component: products is ', products)} */}
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
@@ -45,9 +46,9 @@ export default ShopPage;
 
 export async function getServerSideProps() {
   const url = `${baseUrl}/api/products`;
-  console.log(url);
+  // console.log('in shop-all.js, url ', url);
   const { data } = await axios.get(url);
-  console.log(data);
+  // console.log('in shop - all.js, data ', data);
   // const products = await getProducts();
   return { props: { products: data } };
 }

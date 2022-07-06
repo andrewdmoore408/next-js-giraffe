@@ -55,6 +55,8 @@ export default async function (req, res) {
   // const products = await db.collection('product').find({}).toArray();
   // res.json(products);
 
+  // console.log('In api/products/index.js: Product', Product);
+
   const products = await Product.find({})
   // res.status(200).json({success: true, data: products})
   res.status(200).json(products)
@@ -66,4 +68,3 @@ export default async function (req, res) {
 //     .then((products) => res.json(products))
 //     .catch(next);
 // });
-
